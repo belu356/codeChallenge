@@ -1,1 +1,22 @@
-<p>home works!</p>
+<div class="container text-center">
+    <div class="pt-2 search-box">
+        <input type="text" [(ngModel)]="query" (ngModelChange)="searchMovie($event)" placeholder="Find a movie"
+            class="form-control p-2">
+
+        <ngx-stars [readonly]="false" [wholeStars]="true" [maxStars]="5" [color]="'#efde10'" [size]="3"
+            [initialStars]="0" (ratingOutput)="onRatingSet($event)">
+        </ngx-stars>
+        <button class="btn btn-secondary" (click)="search()">Search</button>
+    </div>
+
+    <div class="mt-5">
+        <h3 *ngIf="!searchMode" class="popular">Most Popular</h3>
+        <div *ngFor="let m of movies; let i=index" class="movie-card p-2 mt-1" (click)="viewDetails(m.id)">
+            <img src="https://image.tmdb.org/t/p/w500/{{m.poster_path}}">
+        </div>
+    </div>
+    <div *ngIf="notFound">
+        <h1>Oops... no results found!</h1>
+        <img src="../../assets/pngkey.com-results-icon-png-6722829.png" style="width: 10%;">
+    </div>
+</div>

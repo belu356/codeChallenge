@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="detailBanner">
+
+        <div class="row container p-3">
+            <div class="col-6">
+                <img src="https://image.tmdb.org/t/p/w500/{{poster}}" class="w-50">
+            </div>
+            <div class="col-6 detail-card">
+                <div class="mb-2">
+                    <h2 class="mb-1">{{title}}</h2>
+                    <small>{{tagline}}</small>
+                </div>
+                <div><span><b>Genres:</b> &nbsp;</span> <span *ngFor="let g of genres">{{g.name}}&nbsp;-&nbsp;</span>
+                </div>
+                <div><span><b>Release date:</b> &nbsp;</span>{{releaseDate}}</div>
+                <div><span><b>Average (?:</b> &nbsp;{{voteAverage}}</span></div>
+                <div><span><b>Overview:</b> &nbsp;{{overview}}</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="reviews?.length">
+        <h4>Reviews</h4>
+        <hr>
+        <div *ngFor=" let r of reviews">
+            <div>
+                <b>{{r.author}}:&nbsp;</b>
+
+            </div>
+            <div>{{r.content}}</div>
+        </div>
+
+    </div>
+
+</div>
