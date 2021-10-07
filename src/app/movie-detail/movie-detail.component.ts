@@ -30,7 +30,6 @@ export class MovieDetailComponent implements OnInit {
   }
   getDetail() {
     this.movieService.getMovieDetails(this.movieId).subscribe((d: any) => {
-      console.log(d, 'detail')
       this.title = d.title;
       this.releaseDate = d.release_date;
       this.overview = d.overview
@@ -45,7 +44,6 @@ export class MovieDetailComponent implements OnInit {
   getReviews() {
     this.movieService.getReviews(this.movieId).subscribe((r: any) => {
       this.reviews = r.results
-      console.log(this.reviews)
     })
   }
 }
